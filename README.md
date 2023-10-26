@@ -15,6 +15,7 @@
   sudo apt install liblapack-dev
   ```
 * Then follow the INSTALL.md rubric
+  * To compile only without GPU, make sure to use `-DFAISS_ENABLE_GPU=OFF`
 
 # Faiss
 
