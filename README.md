@@ -14,7 +14,7 @@
   sudo apt install libblas-dev
   sudo apt install liblapack-dev
   ```
-* TODO
+* Then follow the INSTALL.md rubric
 
 # Faiss
 
