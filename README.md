@@ -1,3 +1,21 @@
+# HPDIC MOD
+
+## Install on ChameleonCloud
+
+* Pick the Ubuntu22-Cuda image
+* Install some libs
+  ```
+  sudo apt update
+  sudo apt install snapd
+  sudo snap install cmake --classic
+  sudo apt install libnvidia-compute-495
+  sudo apt install nvidia-cuda-toolkit
+  sudo apt install nvidia-cuda-toolkit-gcc
+  sudo apt install libblas-dev
+  sudo apt install liblapack-dev
+  ```
+* TODO
+
 # Faiss
 
 Faiss is a library for efficient similarity search and clustering of dense vectors. It contains algorithms that search in sets of vectors of any size, up to ones that possibly do not fit in RAM. It also contains supporting code for evaluation and parameter tuning. Faiss is written in C++ with complete wrappers for Python/numpy. Some of the most useful algorithms are implemented on the GPU. It is developed primarily at Meta's [Fundamental AI Research](https://ai.facebook.com/) group.
