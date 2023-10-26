@@ -8,6 +8,7 @@
   sudo apt update
   sudo apt install snapd
   sudo snap install cmake --classic
+  export PATH=/snap/bin:$PATH
   sudo apt install libnvidia-compute-495
   sudo apt install nvidia-cuda-toolkit
   sudo apt install nvidia-cuda-toolkit-gcc
