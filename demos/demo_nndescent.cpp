@@ -16,6 +16,9 @@
 using namespace std::chrono;
 
 int main(void) {
+
+    printf("HPDIC MOD -- verified by Din Djarin \n");
+
     // dimension of the vectors to index
     int d = 64;
     int K = 64;
