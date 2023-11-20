@@ -28,6 +28,9 @@
 #include <faiss/utils/distances.h>
 #include <faiss/utils/random.h>
 
+#include <iostream>
+using namespace std;
+
 extern "C" {
 
 /* declare BLAS functions, see http://www.netlib.org/clapack/cblas/ */
@@ -105,13 +108,17 @@ IndexNNDescent::IndexNNDescent(int d, int K, MetricType metric)
         : Index(d, metric),
           nndescent(d, K),
           own_fields(false),
-          storage(nullptr) {}
+          storage(nullptr) {
+            printf("HPDIC rocks!");
+          }
 
 IndexNNDescent::IndexNNDescent(Index* storage, int K)
         : Index(storage->d, storage->metric_type),
           nndescent(storage->d, K),
           own_fields(false),
-          storage(storage) {}
+          storage(storage) {
+            cout << "HPDIC rocks! " << __FILE__ << ": " << __LINE__ << endl;
+          }
 
 IndexNNDescent::~IndexNNDescent() {
     if (own_fields) {

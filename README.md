@@ -1,6 +1,6 @@
 # HPDIC MOD
 
-## Install on ChameleonCloud
+## First-time Setup on ChameleonCloud
 
 * Pick the Ubuntu22-Cuda image
 * Install some libs
@@ -18,9 +18,11 @@
 * Then follow the INSTALL.md rubric
   * To compile only without GPU, make sure to use `-DFAISS_ENABLE_GPU=OFF`
 
-## Quick Test
+## Quick Start
 
-* `./hpdic_test.sh`
+* `cd ~/faiss`
+* `./hpdic_compile.sh`
+* `./hpdic_run.sh`
 
 # Faiss
 

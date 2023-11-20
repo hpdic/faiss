@@ -65,7 +65,7 @@ struct IndexNNDescent : Index {
  */
 
 struct IndexNNDescentFlat : IndexNNDescent {
-    IndexNNDescentFlat();
+    IndexNNDescentFlat();  // dzhao: is this necessary?
     IndexNNDescentFlat(int d, int K, MetricType metric = METRIC_L2);
 };
 
