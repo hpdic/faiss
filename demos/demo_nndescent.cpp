@@ -13,6 +13,8 @@
 #include <faiss/IndexFlat.h>
 #include <faiss/IndexNNDescent.h>
 
+#include <iostream>
+
 using namespace std::chrono;
 
 int main(void) {
@@ -22,9 +24,11 @@ int main(void) {
     // dimension of the vectors to index
     int d = 64;
     int K = 64;
+    K *= 10; // DFZ: let's enlarge the neighbors
 
     // size of the database we plan to index
     size_t nb = 10000;
+    nb *= 10; // DFZ: make it larger
 
     std::mt19937 rng(12345);
 
@@ -61,6 +65,7 @@ int main(void) {
         }
 
         int k = 5;
+        k *= 10; // DFZ: again let's enlarge the search scope
         std::vector<faiss::idx_t> nns(k * nq);
         std::vector<faiss::idx_t> gt_nns(k * nq);
         std::vector<float> dis(k * nq);
@@ -68,9 +73,13 @@ int main(void) {
         auto start = high_resolution_clock::now();
         index.search(nq, queries.data(), k, dis.data(), nns.data());
         auto end = high_resolution_clock::now();
+        auto t1 = duration_cast<microseconds>(end - start).count();
 
         // find exact kNNs by brute force search
+        start = high_resolution_clock::now();
         bruteforce.search(nq, queries.data(), k, dis.data(), gt_nns.data());
+        end = high_resolution_clock::now();
+        auto t2 = duration_cast<microseconds>(end - start).count();
 
         int recalls = 0;
         for (size_t i = 0; i < nq; ++i) {
@@ -83,9 +92,11 @@ int main(void) {
             }
         }
         float recall = 1.0f * recalls / (k * nq);
-        auto t = duration_cast<microseconds>(end - start).count();
-        int qps = nq * 1.0f * 1000 * 1000 / t;
+        int qps = nq * 1.0f * 1000 * 1000 / t1;
 
         printf("Recall@%d: %f, QPS: %d\n", k, recall, qps);
+
+        std::cout << "ANN search time: " << t1 / 1000.0 << " ms" << std::endl;
+        std::cout << "ENN search time: " << t2 / 1000.0 << " ms" << std::endl;
     }
 }

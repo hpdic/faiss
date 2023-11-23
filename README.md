@@ -24,6 +24,13 @@
 * `./hpdic_compile.sh`
 * `./hpdic_run.sh`
 
+## Results 11/22/2023
+```
+Parameters: k=50, search_L=50
+Recall@50: 0.920280, QPS: 4379
+ANN search time: 228.322 ms
+ENN search time: 6069.25 ms
+```
 # Faiss
 
 Faiss is a library for efficient similarity search and clustering of dense vectors. It contains algorithms that search in sets of vectors of any size, up to ones that possibly do not fit in RAM. It also contains supporting code for evaluation and parameter tuning. Faiss is written in C++ with complete wrappers for Python/numpy. Some of the most useful algorithms are implemented on the GPU. It is developed primarily at Meta's [Fundamental AI Research](https://ai.facebook.com/) group.
