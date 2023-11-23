@@ -26,6 +26,19 @@
 
 ## Results 11/22/2023
 ```
+Parameters: K=640, S=10, R=32, L=640, iter=10
+Iter: 0, recall@640: 0.003906
+Iter: 1, recall@640: 0.009047
+Iter: 2, recall@640: 0.026375
+Iter: 3, recall@640: 0.052328
+Iter: 4, recall@640: 0.085609
+Iter: 5, recall@640: 0.120531
+Iter: 6, recall@640: 0.160375
+Iter: 7, recall@640: 0.206141
+Iter: 8, recall@640: 0.255875
+Iter: 9, recall@640: 0.308187
+Added 100000 points into the index
+Searching ...
 Parameters: k=50, search_L=50
 Recall@50: 0.920280, QPS: 4379
 ANN search time: 228.322 ms
