@@ -43,6 +43,7 @@ int main(void) {
     // generate labels by IndexFlat
     faiss::IndexFlat bruteforce(d, faiss::METRIC_L2);
 
+    // DFZ: You call this a 'database'? LOL
     std::vector<float> database(nb * d);
     for (size_t i = 0; i < nb * d; i++) {
         database[i] = rng() % 1024;
