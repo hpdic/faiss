@@ -15,6 +15,29 @@ python setup.py install
 
 ## If you change header files, do the following, you need to do both C++ and Python steps.
 
+## Test
+```bash
+cd ~/faiss/tutorial/cpp
+# For Intel MKL
+g++ 4-GPU.cpp -o 4-GPU \
+    -fopenmp \
+    -I ../.. \
+    -I /usr/local/cuda/include \
+    -L ../../build/faiss -lfaiss \
+    -L /usr/local/cuda/lib64 -lcudart -lcublas \
+    -lmkl_rt \
+    -Wl,-rpath=$(pwd)/../../build/faiss
+# For OpenBLAS
+g++ 4-GPU.cpp -o 4-GPU \
+    -fopenmp \
+    -I ../.. \
+    -I /usr/local/cuda/include \
+    -L ../../build/faiss -lfaiss \
+    -L /usr/local/cuda/lib64 -lcudart -lcublas \
+    -lopenblas \
+    -Wl,-rpath=$(pwd)/../../build/faiss
+```
+
 ## Installation Steps
 ```bash
 git config --global user.name "Dongfang Zhao"
