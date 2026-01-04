@@ -17,6 +17,8 @@ python setup.py install
 
 ## Installation Steps
 ```bash
+git config --global user.name "Dongfang Zhao"
+git config --global user.email "dzhao@uw.edu"
 python3 script/test_gpu.py
 python3 -m venv myenv
 source myenv/bin/activate
