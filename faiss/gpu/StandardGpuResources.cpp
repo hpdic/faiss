@@ -1,3 +1,7 @@
+/**
+ * HPDIC 2026
+ */
+
 // @lint-ignore-every LICENSELINT
 /**
  * Copyright (c) Facebook, Inc. and its affiliates.
@@ -338,6 +342,9 @@ void StandardGpuResourcesImpl::initializeForDevice(int device) {
     if (isInitialized(device)) {
         return;
     }
+
+    std::cout << "[HPDIC MOD] Faiss GPU initialized on device ID: " << device
+              << std::endl;
 
     FAISS_ASSERT(device < getNumDevices());
     DeviceScope scope(device);
