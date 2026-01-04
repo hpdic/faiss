@@ -19,7 +19,7 @@ python setup.py install
 ```bash
 cd ~/faiss/tutorial/cpp
 # For Intel MKL
-g++ 4-GPU.cpp -o 4-GPU \
+g++ 4-GPU.cpp -o 4-GPU.bin \
     -fopenmp \
     -I ../.. \
     -I /usr/local/cuda/include \
@@ -28,7 +28,7 @@ g++ 4-GPU.cpp -o 4-GPU \
     -lmkl_rt \
     -Wl,-rpath=$(pwd)/../../build/faiss
 # For OpenBLAS
-g++ 4-GPU.cpp -o 4-GPU \
+g++ 4-GPU.cpp -o 4-GPU.bin \
     -fopenmp \
     -I ../.. \
     -I /usr/local/cuda/include \
