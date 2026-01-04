@@ -204,12 +204,26 @@ void IndexIVF::add_sa_codes(idx_t n, const uint8_t* codes, const idx_t* xids) {
     ntotal += n;
 }
 
+/*
+ * ============================================================================
+ * [HPDIC] IndexIVF Core Addition Logic
+ * * This function handles the low-level addition of vectors into inverted
+ * lists. It currently uses a recursive blocking strategy to manage memory usage
+ * for large batches.
+ * ============================================================================
+ */
 void IndexIVF::add_core(
         idx_t n,
         const float* x,
         const idx_t* xids,
         const idx_t* coarse_idx,
         void* inverted_list_context) {
+    // TODO: [HPDIC] Refactor this to support streaming operations.
+    // Currently, this relies on recursive blocking with a fixed block size
+    // (bs=65536). To enable Streaming/Adaptive capabilities, monitoring logic
+    // must be added (either here or after the recursion) to determine if
+    // clusters require splitting or merging.
+
     // do some blocking to avoid excessive allocs
     idx_t bs = 65536;
     if (n > bs) {
